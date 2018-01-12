@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.bootcss.com/vue/2.5.13/vue.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.17.1/axios.js"></script>
+    <title></title>
+</head>
+<body>
+<div id="app">
+<h1>22</h1>
+${one}
+<form action="/demo/shoppingadd">
+    姓名：<input name="username" >
+    <input type="submit" value="添加">
+</form>
+    <!--<form>-->
+        姓名：<input name="username" id="username" >
+        <button onclick="inster()">添加</button>
+    <!--</form>-->
+${id}
+</div>
+</body>
+<script type="text/javascript">
+
+    var one="${one}"
+    console.log(one);
+    function inster() {
+        var username= $("#username").val();
+        $.post("/demo/shoppinginster",{name:1},
+//                {
+//                    username:username,
+//                    pwd:pwd,
+//                    mobilephone:mobilephone
+//                },
+                function(data){
+                    console.log(data);
+//                    alert(data);
+                }
+        );
+    }
+    var app = new Vue({
+        el: '#app',
+        methods:{
+            inster:function () {
+                axios.post('/demo/shoppinginster',{name:1}).then(function(res){
+                            console.log(res.data);
+                        })
+                
+            }
+        }
+    })
+
+</script>
+</html>
