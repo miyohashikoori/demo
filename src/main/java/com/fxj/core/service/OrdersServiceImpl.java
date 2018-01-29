@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,5 +24,9 @@ public class OrdersServiceImpl implements OrdersService {
 
     public Orders selectOrderById(Integer orderId) {
         return ordersDao.selectOrderById(orderId);
+    }
+
+    public List<Orders> selectOrderByPid(Integer pid) {
+        return ordersDao.selectOrderByPid(pid);
     }
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,6 +27,7 @@ public class OrdersController {
     @RequestMapping("orders")
     public String index(ModelMap map){
         Orders orders = ordersService.selectOrderById(1);
+        List<Orders> orderses = ordersService.selectOrderByPid(1);
         map.addAttribute("one",orders);
         return  "orders";
     }

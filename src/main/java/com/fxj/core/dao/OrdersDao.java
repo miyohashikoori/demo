@@ -12,4 +12,5 @@ import java.util.Map;
 public interface OrdersDao {
 
     public Orders selectOrderById(Integer orderId);
+    public List<Orders> selectOrderByPid(Integer pid);
 }
