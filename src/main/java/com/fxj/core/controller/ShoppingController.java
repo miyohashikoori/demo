@@ -31,32 +31,33 @@ public class ShoppingController {
 
     @RequestMapping("shoppingadd")
     public String add(ModelMap map,Shopping info){
-//        Info i=new Info();
-//        i.setPwd("123");
-//        i.setUsername("456");
-//        i.setMobilePhone("789");
-//        infoService.create(i);
-//        Info f=new Info();
-//        f.setPwd("啦啦啦");
-//        f.setUsername("666");
-//        f.setMobilePhone("15759581973");
-//        Integer createresult = infoService.createresult(f);
-//        Integer id = f.getId();
-//        Integer id1 = i.getId();
-//        Map<String,Object> m=new HashMap();
-//        m.put("id",2);
-//        m.put("username","123");
-//        shoppingService.create(m);
-//        Shopping shopping = new Shopping();
-//        shopping.setId("12345678");
-//        shopping.setUsername("大吉大利");
-//        shoppingService.create(shopping);
+
+        // Map create 无返回值  自己设置id
+        Map<String,Object> m=new HashMap();
+        m.put("id","1");
+        m.put("username","123");
+        shoppingService.create(m);
+
+        // Map create 有返回值  uuid
+        Map<String,Object> mr=new HashMap();
+        mr.put("username","321");
+        shoppingService.createresult(mr);
+
+        // javabean create 无返回值  自己设置id
+        Shopping shopping = new Shopping();
+        shopping.setId("12345678");
+        shopping.setUsername("大吉大利");
+        shoppingService.create(shopping);
+
+        // javabean createresult 有返回值 uuid
         Shopping shopping1 = new Shopping();
         shopping1.setUsername("今晚吃鸡");
         Integer createresult = shoppingService.createresult(shopping1);
         String id = shopping1.getId();
         return  "shopping";
     }
+
+
     @RequestMapping(value = "shoppinginster")
     @ResponseBody
     public String inster(Info info, String name){

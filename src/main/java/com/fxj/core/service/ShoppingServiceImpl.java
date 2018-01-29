@@ -31,6 +31,9 @@ public class ShoppingServiceImpl implements ShoppingService {
     public Integer createresult(Shopping shopping) {
         return shoppingDao.createresult(shopping);
     }
+    public Integer createresult(Map map) {
+        return shoppingDao.createresult(map);
+    }
 
     public void create(Map map) {
         shoppingDao.create(map);

@@ -35,4 +35,8 @@ public class InfoServiceImpl implements InfoService {
     public void create(Map map) {
         infoDao.create(map);
     }
+
+    public Integer createresult(Map map) {
+        return infoDao.createresult(map);
+    }
 }

@@ -13,6 +13,8 @@ public interface InfoService {
 
     public Integer createresult(Info info);
 
+    public Integer createresult(Map map);
+
     public void create(Info info);
     public void create(Map map);
 }

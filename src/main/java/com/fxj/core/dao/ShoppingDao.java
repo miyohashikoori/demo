@@ -14,6 +14,8 @@ public interface ShoppingDao {
 
    public Integer createresult(Shopping shopping);
 
+   public Integer createresult(Map map);
+
     public void create(Shopping shopping);
     public void create(Map map);
 }
