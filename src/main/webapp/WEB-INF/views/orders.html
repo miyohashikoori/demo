@@ -21,42 +21,12 @@ ${one}
         姓名：<input name="username" id="username" >
         密码：<input name="pwd"  id="pwd">
         电话：<input name="mobilephone"  id="mobilephone">
-        <button onclick="inster()">添加</button>
+        <!--<button onclick="inster()">添加</button>-->
     <!--</form>-->
 ${id}
 </div>
 </body>
 <script type="text/javascript">
-
-    var one="${one}"
-    console.log(one);
-    function inster() {
-        var username= $("#username").val();
-        var pwd= $("#pwd").val();
-        var mobilephone= $("#mobilephone").val();
-        $.post("/demo/inster",{name:1},
-//                {
-//                    username:username,
-//                    pwd:pwd,
-//                    mobilephone:mobilephone
-//                },
-                function(data){
-                    console.log(data);
-//                    alert(data);
-                }
-        );
-    }
-    var app = new Vue({
-        el: '#app',
-        methods:{
-            inster:function () {
-                axios.post('/demo/inster',{name:1}).then(function(res){
-                            console.log(res.data);
-                        })
-                
-            }
-        }
-    })
 
 </script>
 </html>
