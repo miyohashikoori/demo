@@ -3,6 +3,8 @@ package com.fxj.core.controller;
 import com.alibaba.fastjson.JSON;
 import com.fxj.core.bean.Info;
 import com.fxj.core.service.InfoService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import freemarker.ext.beans.HashAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.support.ManagedMap;
@@ -32,7 +34,8 @@ public class InfoController {
         map.addAttribute("one",one);
 
         Info info = new Info();
-        info.setUsername("2");
+        info.setUsername("10");
+        PageHelper.startPage(1,5);
         List<Info> byProperty = infoService.findByProperty(info);
         Map map1=new HashMap();
         map1.put("username",10);
@@ -51,7 +54,9 @@ public class InfoController {
         map2.put("pwd","33333");
         map2.put("mobilephone","666666");
         infoService.update(map2);
+//        PageHelper.startPage(1,10);
         List<Info> all = infoService.findAll();
+        PageInfo<Info> infoPageInfo = new PageInfo<Info>(all);
         return  "index";
     }
 
