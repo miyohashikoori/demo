@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,5 +39,31 @@ public class InfoServiceImpl implements InfoService {
 
     public Integer createresult(Map map) {
         return infoDao.createresult(map);
+    }
+
+    public List<Info> findByProperty(Info info) {
+        return infoDao.findByFilter(info);
+    }
+    public List<Info> findByProperty(Map map) {
+        return infoDao.findByFilter(map);
+    }
+
+    public List<Info> findAll(){
+        return infoDao.findAll();
+    };
+
+    public void deleteById(Integer id){
+         infoDao.deleteById(id);
+    };
+    public void deleteObj(Map map){
+        infoDao.deleteObj(map);
+    };
+
+    public void update(Info info) {
+        infoDao.update(info);
+    }
+
+    public void update(Map map) {
+        infoDao.update(map);
     }
 }

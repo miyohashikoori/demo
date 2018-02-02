@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,6 +30,28 @@ public class InfoController {
     public String index(ModelMap map){
         Info one = infoService.getOne(1);
         map.addAttribute("one",one);
+
+        Info info = new Info();
+        info.setUsername("2");
+        List<Info> byProperty = infoService.findByProperty(info);
+        Map map1=new HashMap();
+        map1.put("username",10);
+        List<Info> byProperty1 = infoService.findByProperty(map1);
+
+//        infoService.deleteById(25);
+
+//        Map map2=new HashMap();
+//        map2.put("username",6);
+//        infoService.deleteObj(map2);
+//        one.setUsername("11111");
+//        infoService.update(one);
+        Map map2=new HashMap();
+        map2.put("id",1);
+        map2.put("username","111");
+        map2.put("pwd","33333");
+        map2.put("mobilephone","666666");
+        infoService.update(map2);
+        List<Info> all = infoService.findAll();
         return  "index";
     }
 

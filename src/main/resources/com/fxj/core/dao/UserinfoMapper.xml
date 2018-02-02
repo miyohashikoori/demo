@@ -55,6 +55,22 @@
         delete from zgfu_distribution.wx_info where id = #{id}
     </delete>
 
+    <delete id="deleteObj" parameterType="java.lang.Integer">
+        delete from zgfu_distribution.wx_info where 1=1
+        <if test="id != null">
+            and id = #{id}
+        </if>
+        <if test="username != null">
+            and U_USERNAME = #{username,jdbcType=VARCHAR}
+        </if>
+        <if test="pwd != null">
+            and U_PWD = #{pwd,jdbcType=VARCHAR}
+        </if>
+        <if test="mobilephone != null">
+            and U_MOBILEPHONE = #{mobilephone,jdbcType=VARCHAR}
+        </if>
+    </delete>
+
     <select id="getOne" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         SELECT
         <include refid="Base_Column_List"/>

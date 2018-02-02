@@ -2,6 +2,7 @@ package com.fxj.core.dao;
 
 import com.fxj.core.bean.Info;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,4 +18,19 @@ public interface InfoDao {
 
     public void create(Info info);
     public void create(Map map);
+
+    public List<Info> findByFilter(Info info);
+    public List<Info> findByFilter(Map map);
+
+
+    public List<Info> findAll();
+
+    public void deleteById(Integer id);
+    public void deleteObj(Map map);
+
+    public void update(Info info);
+    public void update(Map map);
+
+
+
 }
